@@ -40,12 +40,14 @@ if config('MODE')=="dev":
    }
 # production
 else:
-   DATABASES = {
-       'default': dj_database_url.config(
-           default=config('DATABASE_URL')
-       )
+   DATABASES =    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'portfolio',
+            'USER': 'mariga',
+            'PASSWORD':'password',
+    }
    }
-
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
