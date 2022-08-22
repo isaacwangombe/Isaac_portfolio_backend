@@ -18,6 +18,8 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from corsheaders.defaults import default_headers
+
 
 
 
@@ -60,9 +62,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS=['*']
 
-CORS_ORIGIN_ALLOW_ALL = True
 Debug = True
 # Application definition
 
@@ -79,7 +79,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'rest_framework',
     'cloudinary',
-    'corsheaders',
+    "corsheaders",
 
 
 
@@ -172,8 +172,44 @@ STATICFILES_DIRS = [
 ]
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://marigaportfolio.herokuapp.com",
+    "http://127.0.0.1:8000",
+    "http://localhost:4200"
+
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "my-custom-header",
+]
+
+
+
 
 cloudinary.config( 
   cloud_name = "dtj7bnapz", 
