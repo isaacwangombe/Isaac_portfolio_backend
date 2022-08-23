@@ -62,7 +62,7 @@ class Databases(models.Model):
 		return items
 class Projects(models.Model):
 	name = models.CharField(max_length =30)
-	details = models.TextField(max_length =300)
+	details = models.TextField(max_length =1000)
 	link = models.CharField(max_length =150, blank=True, null=True)
 	github = models.CharField(max_length =150, blank=True, null=True)
 	date = models.DateField(auto_now_add=False) 
@@ -123,7 +123,7 @@ RATING = (
 class Comments(models.Model):
 	name = models.CharField(max_length =30)
 	email = models.EmailField(max_length =30, blank=True,null=True)
-	comment = models.TextField(max_length =300, default = "Great Project")
+	comment = models.TextField(max_length =1000, default = "Great Project")
 	design_rating = models.IntegerField(choices=RATING, default=1)
 	user_rating = models.IntegerField(choices=RATING, default=1)
 	content_rating = models.IntegerField(choices=RATING, default=1)
