@@ -64,6 +64,7 @@ class Projects(models.Model):
 	name = models.CharField(max_length =30)
 	details = models.TextField(max_length =300)
 	link = models.CharField(max_length =150, blank=True, null=True)
+	github = models.CharField(max_length =150, blank=True, null=True)
 	date = models.DateField(auto_now_add=False) 
 	languages = models.ManyToManyField(Languages)
 	frameworks = models.ManyToManyField(Frameworks, blank=True)
