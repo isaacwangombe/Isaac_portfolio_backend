@@ -9,7 +9,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Projects
-    fields = ('id','name', 'details', 'date', 'languages', 'frameworks', 'tools', 'database', 'image','link')
+    fields = ('id','name', 'details', 'date', 'languages', 'frameworks', 'tools', 'database', 'image','link','github')
 
 
 class LanguagesSerializer(serializers.ModelSerializer):
