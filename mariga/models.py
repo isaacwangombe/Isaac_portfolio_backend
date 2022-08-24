@@ -80,7 +80,7 @@ class Projects(models.Model):
 
 	@classmethod
 	def get_all(cls):
-		projects = cls.objects.all()
+		projects = cls.objects.all().order_by('-id')
 		return projects
 
 	@classmethod
@@ -90,22 +90,22 @@ class Projects(models.Model):
 
 	@classmethod
 	def filter_framework(cls, framework):
-		projects = cls.objects.filter(frameworks__framework=framework)
+		projects = cls.objects.filter(frameworks__framework=framework).order_by('-id')
 		return projects
 
 	@classmethod
 	def filter_languages(cls, languages):
-		projects = cls.objects.filter(languages__language=languages)
+		projects = cls.objects.filter(languages__language=languages).order_by('-id')
 		return projects
 
 	@classmethod
 	def filter_tools(cls, tools):
-		projects = cls.objects.filter(tools=tools)
+		projects = cls.objects.filter(tools=tools).order_by('-id')
 		return projects
 
 	@classmethod
 	def filter_database(cls, database):
-		projects = cls.objects.filter(database=database)
+		projects = cls.objects.filter(database=database).order_by('-id')
 		return projects
 
 
