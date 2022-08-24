@@ -90,12 +90,12 @@ class Projects(models.Model):
 
 	@classmethod
 	def filter_framework(cls, framework):
-		projects = cls.objects.filter(frameworks=framework)
+		projects = cls.objects.filter(frameworks__framework=framework)
 		return projects
 
 	@classmethod
 	def filter_languages(cls, languages):
-		projects = cls.objects.filter(languages=languages)
+		projects = cls.objects.filter(languages__language=languages)
 		return projects
 
 	@classmethod
