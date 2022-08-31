@@ -3,14 +3,6 @@ from .models import Databases, Frameworks, Languages, Projects, Comments, Tools
 
 
 
-class ProjectSerializer(serializers.ModelSerializer):
-
-  # languages = serializers.ReadOnlyField('languages.language')
-
-  class Meta:
-    model = Projects
-    fields = ('id','name', 'details', 'date', 'languages', 'frameworks', 'tools', 'database', 'image','link','github')
-
 
 class LanguagesSerializer(serializers.ModelSerializer):
   
@@ -37,6 +29,17 @@ class DatabasesSerializer(serializers.ModelSerializer):
     model = Databases
     fields = ('id','database')
 
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+
+  languages = LanguagesSerializer(many=True)
+  frameworks = FrameworksSerializer(many=True)
+  tools = ToolsSerializer(many=True)
+  database = DatabasesSerializer(many=True)
+  class Meta:
+    model = Projects
+    fields = ('id','name', 'details', 'date', 'languages', 'frameworks', 'tools', 'database', 'image','link','github')
 
 class CommentsSerializer(serializers.ModelSerializer):
   class Meta:
